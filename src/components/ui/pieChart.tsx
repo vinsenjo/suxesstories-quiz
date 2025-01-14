@@ -1,8 +1,6 @@
 "use client"
 
-
 import { Label, Pie, PieChart } from "recharts"
-
 import {
     Card,
     CardContent,
@@ -45,7 +43,6 @@ export function PieChardComponent({ chartData, hasil, warna }: { chartData: any,
         <Card className="flex flex-col bg-neutral">
             <CardHeader className="items-center pb-0">
                 <CardTitle className="text-xl">Hasil Test Anda</CardTitle>
-                {/* <CardDescription>January - June 2024</CardDescription> */}
             </CardHeader>
             <CardContent className="flex-1 pb-0">
                 <ChartContainer
