@@ -5,7 +5,7 @@ interface QuestionButtonProps {
 }
 const QuestionButton: React.FC<QuestionButtonProps> = ({ text, handleClick }) => {
     return (
-        <button onClick={handleClick} className='w-full  flex items-center justify-center text-base lg:text-lg neu neu-active bg-langit hover:bg-langit/30 hover:text-primer rounded-md py-2'>
+        <button onClick={handleClick} className='w-full  flex items-center justify-center text-base lg:text-lg neu neu-active bg-langit lg:hover:bg-langit/30 lg:hover:text-primer rounded-md py-2'>
             {text}
         </button>
     )

@@ -32,7 +32,7 @@ const Result = ({ result }: { result: String[] }) => {
 
     return (
         <div className='px-4 flex flex-col items-center h-screen bg-second gap-10'>
-            <h1 className='text-lg mt-24 lg:text-2xl font-semibold text-primer'>SELAMAT TELAH MENYELESAIKAN TEST ANDA !</h1>
+            <h1 className='text-justify text-lg mt-24 lg:text-2xl font-semibold text-primer'>SELAMAT TELAH MENYELESAIKAN TEST ANDA !</h1>
             <PieChardComponent chartData={chartData} hasil={hasil[mostCommonColor.warna as keyof typeof hasil]} warna={mostCommonColor.warna} />
         </div>
     )
