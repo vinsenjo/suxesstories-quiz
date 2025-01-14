@@ -6,8 +6,6 @@ const Result = ({ result }: { result: String[] }) => {
     useEffect(() => {
         setColor(result)
     }, [])
-
-
     const merah = React.useMemo(() => { return result.filter((item) => item == "merah").length }, [])
     const ungu = color.filter((item) => item == "ungu").length
     const kuning = color.filter((item) => item == "kuning").length
@@ -30,13 +28,12 @@ const Result = ({ result }: { result: String[] }) => {
     const mostCommonColor = chartData.reduce((prev, current) => {
         return current.jumlah > prev.jumlah ? current : prev;
     });
-
-
+    console.log("WARNA", mostCommonColor);
 
     return (
         <div className='px-4 flex flex-col items-center h-screen bg-second gap-10'>
             <h1 className='text-lg mt-24 lg:text-2xl font-semibold text-primer'>SELAMAT TELAH MENYELESAIKAN TEST ANDA !</h1>
-            <PieChardComponent chartData={chartData} hasil={hasil[mostCommonColor.warna as keyof typeof hasil]} />
+            <PieChardComponent chartData={chartData} hasil={hasil[mostCommonColor.warna as keyof typeof hasil]} warna={mostCommonColor.warna} />
         </div>
     )
 }

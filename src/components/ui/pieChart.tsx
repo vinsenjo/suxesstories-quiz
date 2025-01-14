@@ -1,13 +1,11 @@
 "use client"
 
-import * as React from "react"
-import { TrendingUp } from "lucide-react"
+
 import { Label, Pie, PieChart } from "recharts"
 
 import {
     Card,
     CardContent,
-    CardDescription,
     CardFooter,
     CardHeader,
     CardTitle,
@@ -42,11 +40,7 @@ const chartConfig = {
 
 } satisfies ChartConfig
 
-export function PieChardComponent({ chartData, hasil }: { chartData: any, hasil: string }) {
-    // const totalVisitors = React.useMemo(() => {
-    //     return chartData.reduce((acc, curr) => acc + curr.visitors, 0)
-    // }, [])
-
+export function PieChardComponent({ chartData, hasil, warna }: { chartData: any, hasil: string, warna: string }) {
     return (
         <Card className="flex flex-col bg-neutral">
             <CardHeader className="items-center pb-0">
@@ -105,7 +99,7 @@ export function PieChardComponent({ chartData, hasil }: { chartData: any, hasil:
             <CardFooter className="flex-col gap-2 text-sm">
                 <div className="flex items-center gap-2 font-medium leading-none">
                     <p className="text-lg">
-                        Dominan Warna
+                        Dominan Warna {warna}
                     </p>
                 </div>
                 <div className="leading-none text-muted-foreground">

@@ -4,9 +4,7 @@ import { Question } from '../../types/question'
 import QuestionCard from './QuestionCard'
 import image1 from '../../assets/image1.png'
 import QuestionButton from '@/components/ui/QuestionButton'
-
 import Result from './result'
-
 const Quiz = () => {
     const [start, setStart] = useState<boolean>(false)
     const [data, setData] = useState<Question[]>([])
@@ -43,14 +41,12 @@ const Quiz = () => {
         return <div className='flex h-screen items-center justify-center'>
             <button className="text-xl neu px-5 py-2 rounded-md hover:bg-langit neu-active" onClick={() => setStart(true)}>Mulai Quiz</button>
         </div>
-
     }
     if (question === data.length) {
         return <Result result={result} />;
     }
     return (
         <div className='bg-second'>
-
             <div className='flex flex-col items-center justify-center gap-2 min-h-screen  lg:px-0 px-5 bg-neutral lg:mx-20'>
                 {loading ? (<div>Loading...</div>) :
                     (data?.length > 0 &&
@@ -63,7 +59,6 @@ const Quiz = () => {
                                         <QuestionButton handleClick={() => handleClick(item.color)} text={item.text} key={idx} />
                                     )
                                 })}
-
                             </div>
                         </>
                     )
