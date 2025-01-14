@@ -64,16 +64,13 @@ const ChartContainer = React.forwardRef<
   )
 })
 ChartContainer.displayName = "Chart"
-
 const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
   const colorConfig = Object.entries(config).filter(
     ([, config]) => config.theme || config.color
   )
-
   if (!colorConfig.length) {
     return null
   }
-
   return (
     <style
       dangerouslySetInnerHTML={{
@@ -130,12 +127,10 @@ const ChartTooltipContent = React.forwardRef<
     ref
   ) => {
     const { config } = useChart()
-
     const tooltipLabel = React.useMemo(() => {
       if (hideLabel || !payload?.length) {
         return null
       }
-
       const [item] = payload
       const key = `${labelKey || item.dataKey || item.name || "value"}`
       const itemConfig = getPayloadConfigFromPayload(config, item, key)
@@ -143,7 +138,6 @@ const ChartTooltipContent = React.forwardRef<
         !labelKey && typeof label === "string"
           ? config[label as keyof typeof config]?.label || label
           : itemConfig?.label
-
       if (labelFormatter) {
         return (
           <div className={cn("font-medium", labelClassName)}>
@@ -151,11 +145,9 @@ const ChartTooltipContent = React.forwardRef<
           </div>
         )
       }
-
       if (!value) {
         return null
       }
-
       return <div className={cn("font-medium", labelClassName)}>{value}</div>
     }, [
       label,
@@ -170,9 +162,7 @@ const ChartTooltipContent = React.forwardRef<
     if (!active || !payload?.length) {
       return null
     }
-
     const nestLabel = payload.length === 1 && indicator !== "dot"
-
     return (
       <div
         ref={ref}
@@ -253,9 +243,7 @@ const ChartTooltipContent = React.forwardRef<
   }
 )
 ChartTooltipContent.displayName = "ChartTooltip"
-
 const ChartLegend = RechartsPrimitive.Legend
-
 const ChartLegendContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<"div"> &
@@ -313,7 +301,6 @@ const ChartLegendContent = React.forwardRef<
   }
 )
 ChartLegendContent.displayName = "ChartLegend"
-
 // Helper to extract item config from a payload.
 function getPayloadConfigFromPayload(
   config: ChartConfig,
@@ -323,16 +310,13 @@ function getPayloadConfigFromPayload(
   if (typeof payload !== "object" || payload === null) {
     return undefined
   }
-
   const payloadPayload =
     "payload" in payload &&
     typeof payload.payload === "object" &&
     payload.payload !== null
       ? payload.payload
       : undefined
-
   let configLabelKey: string = key
-
   if (
     key in payload &&
     typeof payload[key as keyof typeof payload] === "string"
@@ -352,7 +336,6 @@ function getPayloadConfigFromPayload(
     ? config[configLabelKey]
     : config[key as keyof typeof config]
 }
-
 export {
   ChartContainer,
   ChartTooltip,
